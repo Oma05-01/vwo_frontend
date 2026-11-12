@@ -10,7 +10,7 @@ export default function Privacy() {
       <p className="mut lead">
         {/* TODO: have this reviewed. Cover what ReachOut and Anywrk collect (messages, photos, location),
             why, how long you keep it, who sees it, and how people can access or delete it (NDPA). */}
-        {site.legalName} publishes its full privacy policy here. [WRITE AND REVIEW BEFORE LAUNCH]
+        {site.legalName} publishes its full privacy policy here. [Coming soon..]
       </p>
     </section>
   );
