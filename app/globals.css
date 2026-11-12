@@ -33,3 +33,29 @@ h2{font-size:clamp(26px,3.4vw,44px);letter-spacing:-.02em;margin:0 0 16px;font-w
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 .bob{animation:bob 3.2s ease-in-out infinite}
 @media (prefers-reduced-motion:reduce){.bob{animation:none}}
+
+
+.map{overflow:hidden}
+.mapx .pin,.mapx .tag,.mapx .halo,.mapx .rk{opacity:0}
+.mapx .pin{transform:translateY(-28px);transition:opacity .3s,transform .5s cubic-bezier(.3,1.5,.5,1)}
+.mapx .ring{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.02)}
+.mapx .dot{fill:#9fb0a7;transition:fill .3s,opacity .5s}
+.mapx .link{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .6s ease-out}
+.mapx .tag,.mapx .halo,.mapx .rk{transition:opacity .4s}
+
+.mapx[data-phase="1"] .pin,
+.mapx[data-phase="2"] .pin,
+.mapx[data-phase="3"] .pin{opacity:1;transform:none}
+
+.mapx[data-phase="2"] .ring{animation:mapring 2s linear forwards}
+.mapx[data-phase="2"] .dot{fill:#0e4d3a;transition-delay:var(--d)}
+.mapx[data-phase="2"] .rk{opacity:1;transition-delay:var(--d)}
+
+.mapx[data-phase="3"] .dot.best{fill:#0e4d3a}
+.mapx[data-phase="3"] .dot:not(.best){opacity:.35}
+.mapx[data-phase="3"] .rk.best{opacity:1}
+.mapx[data-phase="3"] .link{stroke-dashoffset:0}
+.mapx[data-phase="3"] .halo{opacity:.15}
+.mapx[data-phase="3"] .tag{opacity:1;transition-delay:.5s}
+
+@keyframes mapring{0%{transform:scale(.02);opacity:.6}100%{transform:scale(1);opacity:0}}
